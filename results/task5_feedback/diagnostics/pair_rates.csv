@@ -1,0 +1,11 @@
+mechanism,pair_type,n,better,tie,wrong
+verifier,reasoning,20,0.0,1.0,0.0
+verifier,outcome,20,1.0,0.0,0.0
+verifier,distractor,20,1.0,0.0,0.0
+verifier,filler,20,0.0,1.0,0.0
+verifier,conflict,20,1.0,0.0,0.0
+judge,reasoning,20,0.0,1.0,0.0
+judge,outcome,20,0.0,1.0,0.0
+judge,distractor,20,0.25,0.7,0.05
+judge,filler,20,0.0,0.75,0.25
+judge,conflict,20,0.05,0.95,0.0

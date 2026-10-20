@@ -1,0 +1,24 @@
+base_config: configs/base.yaml
+beta: 0.10
+betas: [0.03, 0.10, 0.30]
+learning_rate: 2.0e-5
+weight_decay: 0.0
+batch_size: 2
+grad_accum_steps: 8
+epochs: 1
+short_ablation_examples: 600
+max_sequence_length: 768
+max_generation_tokens: 256
+max_grad_norm: 1.0
+standard_output: outputs/task1_dpo/standard
+length_output: outputs/task1_dpo/length_balanced
+results_dir: results/task1_dpo
+
+# ---- Added for the student implementation (recorded in every run's run_config.json) ----
+log_every: 1                    # optimizer steps between log lines
+eval_batch_size: 8              # teacher-forced held-out pair scoring
+eval_pairs: null                # null = all released held-out pairs
+eval_generation_prompts: 64     # fixed prefix of dpo_standard_eval prompts used for generation metrics
+generation_batch_size: 8
+word_limit_samples: 4           # sampled generations per word-limit prompt (plus 1 greedy)
+length_balanced_max_examples: null   # null = one full epoch over the supplied balanced subset

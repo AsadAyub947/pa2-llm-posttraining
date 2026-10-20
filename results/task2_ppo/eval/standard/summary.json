@@ -1,0 +1,37 @@
+{
+  "n_prompts": 32,
+  "reward": {
+    "mean": 1.4976768493652344,
+    "std": 1.2777845840640425,
+    "sem": 0.2294968861459793,
+    "n": 32
+  },
+  "kl_token_mean": -2.6038244510808323e-05,
+  "kl_seq_mean": -0.009251713752746582,
+  "entropy_token_mean": 0.9412149397448268,
+  "length": {
+    "mean": 355.3125,
+    "std": 286.6427913688917,
+    "median": 334.5,
+    "q25": 58.5,
+    "q75": 647.25,
+    "iqr": 588.75,
+    "max": 768.0,
+    "n": 32
+  },
+  "truncation_rate": 0.1875,
+  "eos_rate": 0.8125,
+  "decoding": {
+    "max_new_tokens": 768,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "do_sample": true,
+    "seed": 6304,
+    "max_prompt_length": 256
+  },
+  "eval_seconds": 593.446628054,
+  "reward_with_eos_penalty_mean": 1.3101768493652344,
+  "name": "standard",
+  "adapter": "outputs/task2_ppo/standard",
+  "n_eval_prompts": 32
+}

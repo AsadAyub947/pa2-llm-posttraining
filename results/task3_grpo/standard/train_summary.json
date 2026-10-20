@@ -1,0 +1,40 @@
+{
+  "updates": 20,
+  "prompts_per_update": 1,
+  "policy_epochs": 1,
+  "learning_rate": 5e-06,
+  "clip_epsilon": 0.2,
+  "kl_beta": 0.1,
+  "num_generations": 4,
+  "max_prompt_length": 256,
+  "max_completion_length": 512,
+  "mask_truncated_completions": true,
+  "max_grad_norm": 1.0,
+  "seed": 6304,
+  "generation": {
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "do_sample": true
+  },
+  "lora": {
+    "r": 8,
+    "alpha": 16,
+    "dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "v_proj"
+    ]
+  },
+  "micro_batch_size": 1,
+  "run_name": "standard",
+  "loss_type": "grpo",
+  "output": "/content/drive/MyDrive/ATML-PA2-LLM-PostTraining/outputs/task3_grpo/standard",
+  "start_policy": "checkpoints/grpo_midpoint_policy",
+  "reward_model": "yavuz-ai/qwen2.5-1.5b-rm-ultrafeedback",
+  "advantage": "within-group (r-mean)/(std+1e-6)",
+  "dropout": "disabled",
+  "wall_clock_s": 331.1719073530003,
+  "peak_vram_gib": 7.773923873901367,
+  "generated_tokens": 15607,
+  "gpu": "Tesla T4"
+}

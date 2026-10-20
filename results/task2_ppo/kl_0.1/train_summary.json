@@ -1,0 +1,46 @@
+{
+  "updates": 8,
+  "prompts_per_update": 1,
+  "ppo_epochs": 2,
+  "policy_learning_rate": 3e-06,
+  "value_lora_learning_rate": 0.0001,
+  "value_head_learning_rate": 0.0003,
+  "value_train_mode": "lora_head",
+  "clip_epsilon": 0.2,
+  "kl_beta": 0.1,
+  "gamma": 1.0,
+  "gae_lambda": 0.95,
+  "value_coef": 0.5,
+  "missing_eos_penalty": 1.0,
+  "max_prompt_length": 256,
+  "max_response_length": 512,
+  "reward_max_length": 1280,
+  "max_grad_norm": 1.0,
+  "seed": 6304,
+  "generation": {
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "do_sample": true
+  },
+  "lora": {
+    "r": 8,
+    "alpha": 16,
+    "dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "v_proj"
+    ]
+  },
+  "run_name": "kl_0.1",
+  "output": "/content/drive/MyDrive/ATML-PA2-LLM-PostTraining/outputs/task2_ppo/kl_0.1",
+  "start_policy": "checkpoints/ppo_midpoint_policy",
+  "start_value": "checkpoints/ppo_midpoint_value",
+  "reward_model": "yavuz-ai/qwen2.5-1.5b-rm-ultrafeedback",
+  "micro_batch_size": 1,
+  "whiten_advantages": true,
+  "dropout": "disabled",
+  "wall_clock_s": 50.748199280000335,
+  "peak_vram_gib": 7.025086879730225,
+  "generated_tokens": 663,
+  "gpu": "Tesla T4"
+}

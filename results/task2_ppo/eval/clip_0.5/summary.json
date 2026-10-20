@@ -1,0 +1,37 @@
+{
+  "n_prompts": 32,
+  "reward": {
+    "mean": 1.8185958862304688,
+    "std": 1.237653665749962,
+    "sem": 0.22228916044156702,
+    "n": 32
+  },
+  "kl_token_mean": -5.960674612017382e-06,
+  "kl_seq_mean": -0.002113431692123413,
+  "entropy_token_mean": 0.9470789943152417,
+  "length": {
+    "mean": 354.5625,
+    "std": 283.6387378228686,
+    "median": 326.5,
+    "q25": 86.25,
+    "q75": 665.75,
+    "iqr": 579.5,
+    "max": 768.0,
+    "n": 32
+  },
+  "truncation_rate": 0.15625,
+  "eos_rate": 0.84375,
+  "decoding": {
+    "max_new_tokens": 768,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "do_sample": true,
+    "seed": 6304,
+    "max_prompt_length": 256
+  },
+  "eval_seconds": 659.5688943719997,
+  "reward_with_eos_penalty_mean": 1.6623458862304688,
+  "name": "clip_0.5",
+  "adapter": "outputs/task2_ppo/clip_0.5",
+  "n_eval_prompts": 32
+}

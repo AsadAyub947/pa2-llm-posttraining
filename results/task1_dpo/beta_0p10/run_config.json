@@ -1,0 +1,30 @@
+{
+  "run_name": "beta_0p10",
+  "beta": 0.1,
+  "dataset": "data/dpo_standard_train.jsonl",
+  "n_examples": 581,
+  "n_filtered_long_prompts": 19,
+  "max_examples": 600,
+  "epochs": 1,
+  "batch_size": 2,
+  "grad_accum_steps": 8,
+  "effective_batch": 16,
+  "learning_rate": 2e-05,
+  "lr_schedule": "constant",
+  "weight_decay": 0.0,
+  "max_grad_norm": 1.0,
+  "max_sequence_length": 768,
+  "lora": {
+    "r": 8,
+    "alpha": 16,
+    "dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "v_proj"
+    ]
+  },
+  "seed": 6304,
+  "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "dtype": "float16",
+  "output": "/content/drive/MyDrive/ATML-PA2-LLM-PostTraining/outputs/task1_dpo/beta_0p10"
+}

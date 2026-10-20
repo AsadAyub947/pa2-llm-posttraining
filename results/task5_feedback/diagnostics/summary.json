@@ -1,0 +1,151 @@
+{
+  "n_problems": 20,
+  "pair_rates": [
+    {
+      "mechanism": "verifier",
+      "pair_type": "reasoning",
+      "n": 20,
+      "better": 0.0,
+      "tie": 1.0,
+      "wrong": 0.0
+    },
+    {
+      "mechanism": "verifier",
+      "pair_type": "outcome",
+      "n": 20,
+      "better": 1.0,
+      "tie": 0.0,
+      "wrong": 0.0
+    },
+    {
+      "mechanism": "verifier",
+      "pair_type": "distractor",
+      "n": 20,
+      "better": 1.0,
+      "tie": 0.0,
+      "wrong": 0.0
+    },
+    {
+      "mechanism": "verifier",
+      "pair_type": "filler",
+      "n": 20,
+      "better": 0.0,
+      "tie": 1.0,
+      "wrong": 0.0
+    },
+    {
+      "mechanism": "verifier",
+      "pair_type": "conflict",
+      "n": 20,
+      "better": 1.0,
+      "tie": 0.0,
+      "wrong": 0.0
+    },
+    {
+      "mechanism": "judge",
+      "pair_type": "reasoning",
+      "n": 20,
+      "better": 0.0,
+      "tie": 1.0,
+      "wrong": 0.0
+    },
+    {
+      "mechanism": "judge",
+      "pair_type": "outcome",
+      "n": 20,
+      "better": 0.0,
+      "tie": 1.0,
+      "wrong": 0.0
+    },
+    {
+      "mechanism": "judge",
+      "pair_type": "distractor",
+      "n": 20,
+      "better": 0.25,
+      "tie": 0.7,
+      "wrong": 0.05
+    },
+    {
+      "mechanism": "judge",
+      "pair_type": "filler",
+      "n": 20,
+      "better": 0.0,
+      "tie": 0.75,
+      "wrong": 0.25
+    },
+    {
+      "mechanism": "judge",
+      "pair_type": "conflict",
+      "n": 20,
+      "better": 0.05,
+      "tie": 0.95,
+      "wrong": 0.0
+    }
+  ],
+  "sensitivity": {
+    "verifier": {
+      "S_reason": 0.0,
+      "S_outcome": 1.0,
+      "S_outcome_good_reasoning_wrong_final": 1.0,
+      "S_outcome_gold_distractor": 1.0,
+      "filler_resistance": 0.0,
+      "filler_preferred_rate": 0.0,
+      "conflict_prefers_correct_final": 1.0,
+      "conflict_prefers_good_reasoning": 0.0
+    },
+    "judge": {
+      "S_reason": 0.0,
+      "S_outcome": 0.125,
+      "S_outcome_good_reasoning_wrong_final": 0.0,
+      "S_outcome_gold_distractor": 0.25,
+      "filler_resistance": 0.0,
+      "filler_preferred_rate": 0.25,
+      "conflict_prefers_correct_final": 0.05,
+      "conflict_prefers_good_reasoning": 0.0
+    }
+  },
+  "pointwise_by_variant": [
+    {
+      "variant": "clean_correct",
+      "verifier_reward": 1.0,
+      "rlaif_group_reward": 0.49375,
+      "words": 49.7
+    },
+    {
+      "variant": "corrupt_reasoning_correct_final",
+      "verifier_reward": 1.0,
+      "rlaif_group_reward": 0.5,
+      "words": 49.7
+    },
+    {
+      "variant": "good_reasoning_wrong_final",
+      "verifier_reward": 0.0,
+      "rlaif_group_reward": 0.475,
+      "words": 49.7
+    },
+    {
+      "variant": "persuasive_filler_correct",
+      "verifier_reward": 1.0,
+      "rlaif_group_reward": 0.5875,
+      "words": 59.7
+    },
+    {
+      "variant": "gold_distractor_wrong_final",
+      "verifier_reward": 0.0,
+      "rlaif_group_reward": 0.44375,
+      "words": 17.0
+    }
+  ],
+  "verifier_vs_expected_mismatches": [],
+  "judge_calls": 200,
+  "judge_seconds_total": 75.41980175000026,
+  "judge_seconds_per_call": 0.3770990087500013,
+  "judge_order_consistency": 0.9,
+  "judge_order_consistency_by_pair": {
+    "conflict": 0.95,
+    "distractor": 0.7,
+    "filler": 1.0,
+    "outcome": 0.85,
+    "reasoning": 1.0
+  }
+}

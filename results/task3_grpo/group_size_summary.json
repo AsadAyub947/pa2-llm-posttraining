@@ -1,0 +1,597 @@
+{
+  "budget_rule": "all 8 cached completions of every prompt are partitioned into 8/K disjoint groups of size K",
+  "difficulty_rule": "prompt mean reward over 8 cached completions, 3 equal-count quantile bins",
+  "difficulty_bin_edges": [
+    -1.45556640625,
+    1.3125813802083333,
+    2.4212239583333335,
+    3.220703125
+  ],
+  "bin_counts": {
+    "medium": 8,
+    "hard": 8,
+    "easy": 8
+  },
+  "tolerance": 1e-06,
+  "n_prompts": 24,
+  "rows": [
+    {
+      "K": 2,
+      "subset": "all",
+      "partition": "generation_index",
+      "n_groups": 96,
+      "n_generations": 192,
+      "informative_rate": 0.9375,
+      "uninformative_rate": 0.0625,
+      "informative_groups_per_100_gen": 46.875,
+      "informative_rate_after_trunc_mask": 0.8229166666666666,
+      "frac_generations_nonzero_adv": 0.9375,
+      "mean_within_group_std": 0.3845672607421875,
+      "var_centred_signal": 0.3368348789711793,
+      "var_normalized_adv": 0.9374814173564774,
+      "baseline_mse": 0.22306026487300792
+    },
+    {
+      "K": 2,
+      "subset": "hard",
+      "partition": "generation_index",
+      "n_groups": 32,
+      "n_generations": 64,
+      "informative_rate": 0.84375,
+      "uninformative_rate": 0.15625,
+      "informative_groups_per_100_gen": 42.1875,
+      "informative_rate_after_trunc_mask": 0.71875,
+      "frac_generations_nonzero_adv": 0.84375,
+      "mean_within_group_std": 0.49340057373046875,
+      "var_centred_signal": 0.5984376166015863,
+      "var_normalized_adv": 0.8437429903132556,
+      "baseline_mse": 0.2884632903151214
+    },
+    {
+      "K": 2,
+      "subset": "medium",
+      "partition": "generation_index",
+      "n_groups": 32,
+      "n_generations": 64,
+      "informative_rate": 0.96875,
+      "uninformative_rate": 0.03125,
+      "informative_groups_per_100_gen": 48.4375,
+      "informative_rate_after_trunc_mask": 0.78125,
+      "frac_generations_nonzero_adv": 0.96875,
+      "mean_within_group_std": 0.41237640380859375,
+      "var_centred_signal": 0.3040905836969614,
+      "var_normalized_adv": 0.9687324662020503,
+      "baseline_mse": 0.14282165793702006
+    },
+    {
+      "K": 2,
+      "subset": "easy",
+      "partition": "generation_index",
+      "n_groups": 32,
+      "n_generations": 64,
+      "informative_rate": 1.0,
+      "uninformative_rate": 0.0,
+      "informative_groups_per_100_gen": 50.0,
+      "informative_rate_after_trunc_mask": 0.96875,
+      "frac_generations_nonzero_adv": 1.0,
+      "mean_within_group_std": 0.2479248046875,
+      "var_centred_signal": 0.10797643661499023,
+      "var_normalized_adv": 0.9999687955541261,
+      "baseline_mse": 0.23789584636688232
+    },
+    {
+      "K": 4,
+      "subset": "all",
+      "partition": "generation_index",
+      "n_groups": 48,
+      "n_generations": 192,
+      "informative_rate": 0.9583333333333334,
+      "uninformative_rate": 0.04166666666666663,
+      "informative_groups_per_100_gen": 23.958333333333332,
+      "informative_rate_after_trunc_mask": 0.8958333333333334,
+      "frac_generations_nonzero_adv": 0.9583333333333334,
+      "mean_within_group_std": 0.5410043647319412,
+      "var_centred_signal": 0.4677260586371024,
+      "var_normalized_adv": 0.9583276282884473,
+      "baseline_mse": 0.09216908520708482
+    },
+    {
+      "K": 4,
+      "subset": "hard",
+      "partition": "generation_index",
+      "n_groups": 16,
+      "n_generations": 64,
+      "informative_rate": 0.875,
+      "uninformative_rate": 0.125,
+      "informative_groups_per_100_gen": 21.875,
+      "informative_rate_after_trunc_mask": 0.8125,
+      "frac_generations_nonzero_adv": 0.875,
+      "mean_within_group_std": 0.6614877562072954,
+      "var_centred_signal": 0.786526813171804,
+      "var_normalized_adv": 0.8749959487185579,
+      "baseline_mse": 0.1003740937449038
+    },
+    {
+      "K": 4,
+      "subset": "medium",
+      "partition": "generation_index",
+      "n_groups": 16,
+      "n_generations": 64,
+      "informative_rate": 1.0,
+      "uninformative_rate": 0.0,
+      "informative_groups_per_100_gen": 25.0,
+      "informative_rate_after_trunc_mask": 0.875,
+      "frac_generations_nonzero_adv": 1.0,
+      "mean_within_group_std": 0.5516941225351226,
+      "var_centred_signal": 0.4017186826094985,
+      "var_normalized_adv": 0.9999938126434347,
+      "baseline_mse": 0.045193559024482965
+    },
+    {
+      "K": 4,
+      "subset": "easy",
+      "partition": "generation_index",
+      "n_groups": 16,
+      "n_generations": 64,
+      "informative_rate": 1.0,
+      "uninformative_rate": 0.0,
+      "informative_groups_per_100_gen": 25.0,
+      "informative_rate_after_trunc_mask": 1.0,
+      "frac_generations_nonzero_adv": 1.0,
+      "mean_within_group_std": 0.4098312154534056,
+      "var_centred_signal": 0.21493268013000488,
+      "var_normalized_adv": 0.9999931235033492,
+      "baseline_mse": 0.13093960285186768
+    },
+    {
+      "K": 8,
+      "subset": "all",
+      "partition": "generation_index",
+      "n_groups": 24,
+      "n_generations": 192,
+      "informative_rate": 0.9583333333333334,
+      "uninformative_rate": 0.04166666666666663,
+      "informative_groups_per_100_gen": 11.979166666666666,
+      "informative_rate_after_trunc_mask": 0.9583333333333334,
+      "frac_generations_nonzero_adv": 0.9583333333333334,
+      "mean_within_group_std": 0.6190544134665206,
+      "var_centred_signal": 0.5598951438441873,
+      "var_normalized_adv": 0.9583290996055105,
+      "baseline_mse": 0.0
+    },
+    {
+      "K": 8,
+      "subset": "hard",
+      "partition": "generation_index",
+      "n_groups": 8,
+      "n_generations": 64,
+      "informative_rate": 0.875,
+      "uninformative_rate": 0.125,
+      "informative_groups_per_100_gen": 10.9375,
+      "informative_rate_after_trunc_mask": 0.875,
+      "frac_generations_nonzero_adv": 0.875,
+      "mean_within_group_std": 0.7633688437029319,
+      "var_centred_signal": 0.8869009069167078,
+      "var_normalized_adv": 0.8749973884556075,
+      "baseline_mse": 0.0
+    },
+    {
+      "K": 8,
+      "subset": "medium",
+      "partition": "generation_index",
+      "n_groups": 8,
+      "n_generations": 64,
+      "informative_rate": 1.0,
+      "uninformative_rate": 0.0,
+      "informative_groups_per_100_gen": 12.5,
+      "informative_rate_after_trunc_mask": 1.0,
+      "frac_generations_nonzero_adv": 1.0,
+      "mean_within_group_std": 0.5990220788024174,
+      "var_centred_signal": 0.44691224163398147,
+      "var_normalized_adv": 0.9999956471654694,
+      "baseline_mse": 0.0
+    },
+    {
+      "K": 8,
+      "subset": "easy",
+      "partition": "generation_index",
+      "n_groups": 8,
+      "n_generations": 64,
+      "informative_rate": 1.0,
+      "uninformative_rate": 0.0,
+      "informative_groups_per_100_gen": 12.5,
+      "informative_rate_after_trunc_mask": 1.0,
+      "frac_generations_nonzero_adv": 1.0,
+      "mean_within_group_std": 0.49477231789421244,
+      "var_centred_signal": 0.34587228298187256,
+      "var_normalized_adv": 0.9999942631954548,
+      "baseline_mse": 0.0
+    }
+  ],
+  "permutation_bands": [
+    {
+      "K": 2,
+      "subset": "all",
+      "metric": "informative_rate",
+      "mean": 0.94765625,
+      "p2.5": 0.9270833333333334,
+      "p97.5": 0.9583333333333334
+    },
+    {
+      "K": 2,
+      "subset": "all",
+      "metric": "mean_within_group_std",
+      "mean": 0.3882425435384114,
+      "p2.5": 0.33648223876953126,
+      "p97.5": 0.4355789184570313
+    },
+    {
+      "K": 2,
+      "subset": "all",
+      "metric": "var_centred_signal",
+      "mean": 0.32477647309501967,
+      "p2.5": 0.22866623799006144,
+      "p97.5": 0.4080193303525448
+    },
+    {
+      "K": 2,
+      "subset": "all",
+      "metric": "baseline_mse",
+      "mean": 0.2351186707491676,
+      "p2.5": 0.15187581349164248,
+      "p97.5": 0.3312289058541259
+    },
+    {
+      "K": 2,
+      "subset": "hard",
+      "metric": "informative_rate",
+      "mean": 0.87078125,
+      "p2.5": 0.84375,
+      "p97.5": 0.875
+    },
+    {
+      "K": 2,
+      "subset": "hard",
+      "metric": "mean_within_group_std",
+      "mean": 0.48537261962890627,
+      "p2.5": 0.3785209655761719,
+      "p97.5": 0.5827362060546876
+    },
+    {
+      "K": 2,
+      "subset": "hard",
+      "metric": "var_centred_signal",
+      "mean": 0.516951981857419,
+      "p2.5": 0.2753023777157068,
+      "p97.5": 0.7123918469995261
+    },
+    {
+      "K": 2,
+      "subset": "hard",
+      "metric": "baseline_mse",
+      "mean": 0.3699489250592887,
+      "p2.5": 0.17450905991718174,
+      "p97.5": 0.6115985292010009
+    },
+    {
+      "K": 2,
+      "subset": "medium",
+      "metric": "informative_rate",
+      "mean": 0.9809375,
+      "p2.5": 0.9375,
+      "p97.5": 1.0
+    },
+    {
+      "K": 2,
+      "subset": "medium",
+      "metric": "mean_within_group_std",
+      "mean": 0.37102249145507815,
+      "p2.5": 0.2968421936035156,
+      "p97.5": 0.43144378662109373
+    },
+    {
+      "K": 2,
+      "subset": "medium",
+      "metric": "var_centred_signal",
+      "mean": 0.2594479740411043,
+      "p2.5": 0.16453195177018642,
+      "p97.5": 0.33849922455847264
+    },
+    {
+      "K": 2,
+      "subset": "medium",
+      "metric": "baseline_mse",
+      "mean": 0.18746426759287715,
+      "p2.5": 0.10841301707550884,
+      "p97.5": 0.2823802898637951
+    },
+    {
+      "K": 2,
+      "subset": "easy",
+      "metric": "informative_rate",
+      "mean": 0.99125,
+      "p2.5": 0.96875,
+      "p97.5": 1.0
+    },
+    {
+      "K": 2,
+      "subset": "easy",
+      "metric": "mean_within_group_std",
+      "mean": 0.30833251953125,
+      "p2.5": 0.204705810546875,
+      "p97.5": 0.37930908203125
+    },
+    {
+      "K": 2,
+      "subset": "easy",
+      "metric": "var_centred_signal",
+      "mean": 0.19792946338653564,
+      "p2.5": 0.08328886032104492,
+      "p97.5": 0.2836484432220459
+    },
+    {
+      "K": 2,
+      "subset": "easy",
+      "metric": "baseline_mse",
+      "mean": 0.14794281959533692,
+      "p2.5": 0.06222383975982666,
+      "p97.5": 0.2625834226608277
+    },
+    {
+      "K": 4,
+      "subset": "all",
+      "metric": "informative_rate",
+      "mean": 0.9583333333333335,
+      "p2.5": 0.9583333333333334,
+      "p97.5": 0.9583333333333334
+    },
+    {
+      "K": 4,
+      "subset": "all",
+      "metric": "mean_within_group_std",
+      "mean": 0.5506003590593436,
+      "p2.5": 0.5155703854694902,
+      "p97.5": 0.5774956408871177
+    },
+    {
+      "K": 4,
+      "subset": "all",
+      "metric": "var_centred_signal",
+      "mean": 0.48392718038211263,
+      "p2.5": 0.3888232511157791,
+      "p97.5": 0.5249613570670287
+    },
+    {
+      "K": 4,
+      "subset": "all",
+      "metric": "baseline_mse",
+      "mean": 0.0759679634620746,
+      "p2.5": 0.034933786777158575,
+      "p97.5": 0.17107189272840817
+    },
+    {
+      "K": 4,
+      "subset": "hard",
+      "metric": "informative_rate",
+      "mean": 0.875,
+      "p2.5": 0.875,
+      "p97.5": 0.875
+    },
+    {
+      "K": 4,
+      "subset": "hard",
+      "metric": "mean_within_group_std",
+      "mean": 0.6868050077716356,
+      "p2.5": 0.5832363917609004,
+      "p97.5": 0.7356335104043575
+    },
+    {
+      "K": 4,
+      "subset": "hard",
+      "metric": "var_centred_signal",
+      "mean": 0.7713952404260636,
+      "p2.5": 0.46809356231242416,
+      "p97.5": 0.864562863856554
+    },
+    {
+      "K": 4,
+      "subset": "hard",
+      "metric": "baseline_mse",
+      "mean": 0.11550566649064421,
+      "p2.5": 0.022338043060153724,
+      "p97.5": 0.4188073446042836
+    },
+    {
+      "K": 4,
+      "subset": "medium",
+      "metric": "informative_rate",
+      "mean": 1.0,
+      "p2.5": 1.0,
+      "p97.5": 1.0
+    },
+    {
+      "K": 4,
+      "subset": "medium",
+      "metric": "mean_within_group_std",
+      "mean": 0.5236148280079446,
+      "p2.5": 0.46662121239801985,
+      "p97.5": 0.5577834596218764
+    },
+    {
+      "K": 4,
+      "subset": "medium",
+      "metric": "var_centred_signal",
+      "mean": 0.3834590632095933,
+      "p2.5": 0.2958538742735982,
+      "p97.5": 0.43035855125635863
+    },
+    {
+      "K": 4,
+      "subset": "medium",
+      "metric": "baseline_mse",
+      "mean": 0.06345317842438818,
+      "p2.5": 0.016553690377622846,
+      "p97.5": 0.1510583673603833
+    },
+    {
+      "K": 4,
+      "subset": "easy",
+      "metric": "informative_rate",
+      "mean": 1.0,
+      "p2.5": 1.0,
+      "p97.5": 1.0
+    },
+    {
+      "K": 4,
+      "subset": "easy",
+      "metric": "mean_within_group_std",
+      "mean": 0.44138124139845075,
+      "p2.5": 0.3829527957049225,
+      "p97.5": 0.4769801606403817
+    },
+    {
+      "K": 4,
+      "subset": "easy",
+      "metric": "var_centred_signal",
+      "mean": 0.2969272375106812,
+      "p2.5": 0.20431249141693114,
+      "p97.5": 0.3367277145385742
+    },
+    {
+      "K": 4,
+      "subset": "easy",
+      "metric": "baseline_mse",
+      "mean": 0.048945045471191405,
+      "p2.5": 0.00914456844329834,
+      "p97.5": 0.14155979156494142
+    },
+    {
+      "K": 8,
+      "subset": "all",
+      "metric": "informative_rate",
+      "mean": 0.9583333333333335,
+      "p2.5": 0.9583333333333334,
+      "p97.5": 0.9583333333333334
+    },
+    {
+      "K": 8,
+      "subset": "all",
+      "metric": "mean_within_group_std",
+      "mean": 0.6190544134665207,
+      "p2.5": 0.6190544134665206,
+      "p97.5": 0.6190544134665206
+    },
+    {
+      "K": 8,
+      "subset": "all",
+      "metric": "var_centred_signal",
+      "mean": 0.5598951438441873,
+      "p2.5": 0.5598951438441873,
+      "p97.5": 0.5598951438441873
+    },
+    {
+      "K": 8,
+      "subset": "all",
+      "metric": "baseline_mse",
+      "mean": 0.0,
+      "p2.5": 0.0,
+      "p97.5": 0.0
+    },
+    {
+      "K": 8,
+      "subset": "hard",
+      "metric": "informative_rate",
+      "mean": 0.875,
+      "p2.5": 0.875,
+      "p97.5": 0.875
+    },
+    {
+      "K": 8,
+      "subset": "hard",
+      "metric": "mean_within_group_std",
+      "mean": 0.7633688437029319,
+      "p2.5": 0.7633688437029319,
+      "p97.5": 0.7633688437029319
+    },
+    {
+      "K": 8,
+      "subset": "hard",
+      "metric": "var_centred_signal",
+      "mean": 0.8869009069167078,
+      "p2.5": 0.8869009069167078,
+      "p97.5": 0.8869009069167078
+    },
+    {
+      "K": 8,
+      "subset": "hard",
+      "metric": "baseline_mse",
+      "mean": 0.0,
+      "p2.5": 0.0,
+      "p97.5": 0.0
+    },
+    {
+      "K": 8,
+      "subset": "medium",
+      "metric": "informative_rate",
+      "mean": 1.0,
+      "p2.5": 1.0,
+      "p97.5": 1.0
+    },
+    {
+      "K": 8,
+      "subset": "medium",
+      "metric": "mean_within_group_std",
+      "mean": 0.5990220788024176,
+      "p2.5": 0.5990220788024174,
+      "p97.5": 0.5990220788024174
+    },
+    {
+      "K": 8,
+      "subset": "medium",
+      "metric": "var_centred_signal",
+      "mean": 0.44691224163398147,
+      "p2.5": 0.44691224163398147,
+      "p97.5": 0.44691224163398147
+    },
+    {
+      "K": 8,
+      "subset": "medium",
+      "metric": "baseline_mse",
+      "mean": 0.0,
+      "p2.5": 0.0,
+      "p97.5": 0.0
+    },
+    {
+      "K": 8,
+      "subset": "easy",
+      "metric": "informative_rate",
+      "mean": 1.0,
+      "p2.5": 1.0,
+      "p97.5": 1.0
+    },
+    {
+      "K": 8,
+      "subset": "easy",
+      "metric": "mean_within_group_std",
+      "mean": 0.4947723178942124,
+      "p2.5": 0.49477231789421244,
+      "p97.5": 0.49477231789421244
+    },
+    {
+      "K": 8,
+      "subset": "easy",
+      "metric": "var_centred_signal",
+      "mean": 0.34587228298187256,
+      "p2.5": 0.34587228298187256,
+      "p97.5": 0.34587228298187256
+    },
+    {
+      "K": 8,
+      "subset": "easy",
+      "metric": "baseline_mse",
+      "mean": 0.0,
+      "p2.5": 0.0,
+      "p97.5": 0.0
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "weak_beta": 0.0,
+  "strong_beta": 0.2,
+  "z": 1.0,
+  "first_divergence_update": {
+    "rm_score": null,
+    "kl_token_mean": 2,
+    "entropy": null,
+    "response_length": null
+  }
+}

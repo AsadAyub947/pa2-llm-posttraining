@@ -1,0 +1,27 @@
+base_config: configs/base.yaml
+updates: 20
+fork_updates: 8
+prompts_per_update: 1
+policy_epochs: 1
+learning_rate: 5.0e-6
+clip_epsilon: 0.20
+kl_beta: 0.10
+num_generations: 4
+group_sizes: [2, 4, 8]
+max_prompt_length: 256
+max_completion_length: 512
+mask_truncated_completions: true
+max_grad_norm: 1.0
+output: outputs/task3_grpo/standard
+results_dir: results/task3_grpo
+group_cache: cached/grpo_k_cache.jsonl
+cache_generation_cap: 768
+
+# ---- Added for the student implementation ----
+micro_batch_size: 1             # 1 => exact per-completion gradient norms are logged
+eval_prompts: 32
+eval_batch_size: 4
+eval_max_response_length: 768
+reward_max_length: 1280
+difficulty_bins: 3              # tertiles of the per-prompt mean reward over all 8 cached completions
+regroup_permutations: 200       # random within-prompt partitions for the group-size study
