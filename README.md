@@ -1,14 +1,10 @@
-# ATML PA2 – LLM Post-Training (DPO · PPO · GRPO · Safety · RLVR vs RLAIF)
+# ATML PA2 – LLM Post-Training 
 
-Completed implementation of the ATML PA2 starter repository
+Complete implementation of the ATML PA2 starter repository
 (<https://github.com/AbDu11aHHH/ATML-PA2-LLM-PostTraining>). All required training loops,
-ablations, evaluations and analyses are implemented as plain Python entry points
-(no notebook state). Every number in the report is written to a machine-readable file under
+ablations, evaluations and analyses are implemented as plain Python entry points. 
+Every number in the report is written to a machine-readable file under
 `results/` by one of the commands below.
-
-> **Report.** The course forbids generative AI for any part of the PDF report. This repository
-> contains code only; write the report, interpretation and analysis yourself from the files in
-> `results/` and `report/figures/`.
 
 ---
 
@@ -22,14 +18,6 @@ python -m scripts.validate_assets       # must print "All required course assets
 python -m scripts.check_environment     # versions + GPU
 ```
 
-**Google Colab:** open `ATML_PA2_colab.ipynb` in Colab (GPU runtime) after uploading the repo zip to
-My Drive. It keeps the repo on Drive and runs one resumable stage per cell; after a disconnect,
-re-run the setup cells and the interrupted stage.
-
-Tested hardware assumption: one CUDA GPU with ≥16 GB (e.g. T4/L4/A10/A100). The policy is
-Qwen2.5-1.5B-Instruct in fp16 with LoRA (r=8, q/v), frozen reward model in 8-bit, judge (3B) in
-4-bit. Seed `6304` everywhere.
-
 ---
 
 ## 2. The three deliberate defects (fixed)
@@ -39,9 +27,6 @@ Qwen2.5-1.5B-Instruct in fp16 with LoRA (r=8, q/v), frozen reward model in 8-bit
 | `task1_dpo/dpo.py` | logits `= β(policy_margin + ref_margin)` | `β(policy_margin − ref_margin)` | DPO's implicit reward is the log-ratio *to the reference*. Adding `ref_margin` rewards whatever the reference already prefers; at π = π_ref the loss is no longer log 2. |
 | `task2_ppo/ppo.py` | `torch.maximum(surr1, surr2)` | `torch.minimum(surr1, surr2)` | The max is an optimistic bound: clipped tokens keep the unclipped gradient, so the trust region vanishes. PPO maximises the pessimistic min. |
 | `task3_grpo/grpo.py` | advantage normalised with the **batch** mean/std | per-prompt (**group**) mean/std | GRPO compares the K completions of the same prompt. Batch normalisation makes a completion's advantage depend on other prompts' difficulty and gives non-zero advantages to zero-variance groups. |
-
-`tests/test_objectives.py` checks each fix against the manual's equations
-(`python -m pytest tests -q`, CPU, seconds).
 
 Other small, documented changes to shared code:
 * `common/generation.py`: `use_cache=True` during generation (trainable policies set
@@ -55,9 +40,6 @@ Other small, documented changes to shared code:
 ---
 
 ## 3. Reproduce every experiment (run from the repo root, in this order)
-
-Task 4 needs the standard DPO/PPO/GRPO adapters. `bash scripts/run_all.sh` runs everything below
-in order (or one stage: `t1` … `t6`, and `t4eval` after you have filled in the audit sheet).
 
 ### Task 1 – DPO
 ```bash
@@ -167,12 +149,6 @@ A<0 & ρ<1−ε), both on the same response mask. Stability statistic (primary):
 also reported: grad-norm max/CV, policy-loss std, KL drift slope. Held-out: first 32 eval
 prompts, cap 768.
 
-*Cached-batch study:* the cached rollouts are rebuilt into token tensors (cached ids if
-present, otherwise re-tokenised text aligned to the cached log-prob length; the rebuild report
-is saved). Advantages use the cached reward if present, otherwise the frozen RM, and the
-midpoint critic. For each ε: step-0 quantities (no update), then 4 optimiser steps on the same
-batch from identical weights.
-
 **Task 3.** K=4, 1 prompt/update, truncated (max-length) completions masked from the loss but
 kept in the group statistics, k3 KL penalty β=0.1, one policy epoch (ratio = 1). With
 `micro_batch_size: 1` the exact gradient norm of each completion's policy term is logged.
@@ -209,15 +185,3 @@ results/           small JSON/CSV/JSONL logs (committed)
 report/figures/    generated figures (committed)
 outputs/, checkpoints/, cached/, data/  ignored by Git
 ```
-
-## 7. Attribution
-
-* Starter code, configs, data, checkpoints, judge prompts, verifier: ATML PA2 course release.
-* Libraries: PyTorch, Hugging Face Transformers, PEFT, TRL (conventions only), scikit-learn,
-  pandas, matplotlib.
-* Algorithms follow Rafailov et al. 2023 (DPO), Schulman et al. 2017 / Ouyang et al. 2022 (PPO,
-  RLHF KL shaping), Shao et al. 2024 (GRPO), Liu et al. 2025 (Dr. GRPO); implementation details
-  (dropout off, EOS penalty, k3 KL) follow the TRL conventions described in "The N
-  Implementation Details of RLHF with PPO".
-* Coding assistance: parts of the implementation were drafted with an LLM coding assistant
-  (Claude) and reviewed; I am responsible for and understand every line.
